@@ -1,6 +1,7 @@
 class CuisinesController < ApplicationController
   def index
-    @cuisines = Cuisine.page(params[:page]).per(10)
+    @q = Cuisine.ransack(params[:q])
+    @cuisines = @q.result(:distinct => true).includes(:restaurants).page(params[:page]).per(10)
 
     render("cuisine_templates/index.html.erb")
   end
