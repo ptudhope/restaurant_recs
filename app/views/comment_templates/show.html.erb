@@ -11,37 +11,30 @@
         </a>
       </div>
 
-      <!-- Edit link comment start -->
       <div class="col">
         <a href="/comments/<%= @comment.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit comment
         </a>
       </div>
-      <!-- Edit link comment end -->
 
-      <!-- Delete link comment start -->
       <div class="col">
         <a href="/delete_comment/<%= @comment.id %>" class="btn btn-block btn-outline-secondary">
           Delete comment
         </a>
       </div>
-      <!-- Delete link comment end -->
     </div>
 
     <dl>
       <dt>
         Body
       </dt>
-      <!-- Display body start -->
       <dd>
         <%= @comment.body %>
       </dd>
-      <!-- Display body end -->
 
       <dt>
         Author
       </dt>
-      <!-- Display author_id start -->
       <dd>
         <% if @comment.author.present? %>
           <a href="/users/<%= @comment.author_id %>">
@@ -49,37 +42,28 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display author_id end -->
 
       <dt>
         Restaurant
       </dt>
-      <!-- Display restaurant_id start -->
       <dd>
         <%= @comment.restaurant_id %>
       </dd>
-      <!-- Display restaurant_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@comment.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@comment.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @restaurant.errors.any? %>
   <% @restaurant.errors.full_messages.each do |message| %>
     <div class="alert">
@@ -13,57 +12,39 @@
 
 <hr>
 
-<!-- Form restaurant start -->
 <form action="/update_restaurant/<%= @restaurant.id %>" method="post">
-<!-- Form restaurant end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <label for="name">
       Name
     </label>
 
-    <!-- Input for name start -->
     <input type="text" id="name" name="name" class="form-control" value="<%= @restaurant.name %>">
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for address start -->
   <div class="form-group">
     <label for="address">
       Address
     </label>
 
-    <!-- Input for address start -->
     <input type="text" id="address" name="address" class="form-control" value="<%= @restaurant.address %>">
-    <!-- Input for address end -->
   </div>
-  <!-- Label and input for address end -->
 
-  <!-- Label and input for comments_count start -->
   <div class="form-group">
     <label for="comments_count">
       Comments count
     </label>
 
-    <!-- Input for comments_count start -->
     <input type="text" id="comments_count" name="comments_count" class="form-control" value="<%= @restaurant.comments_count %>">
-    <!-- Input for comments_count end -->
   </div>
-  <!-- Label and input for comments_count end -->
 
-  <!-- Label and input for cuisine_id start -->
   <div class="form-group">
     <label for="cuisine_id">
       Cuisine
     </label>
 
-    <!-- Input for cuisine_id start -->
     <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.all, :id, :name, @restaurant.cuisine_id), :class => "form-control") %>
-    <!-- Input for cuisine_id end -->
   </div>
-  <!-- Label and input for cuisine_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update restaurant

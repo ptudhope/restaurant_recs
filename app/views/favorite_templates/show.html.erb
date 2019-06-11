@@ -11,28 +11,23 @@
         </a>
       </div>
 
-      <!-- Edit link favorite start -->
       <div class="col">
         <a href="/favorites/<%= @favorite.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit favorite
         </a>
       </div>
-      <!-- Edit link favorite end -->
 
-      <!-- Delete link favorite start -->
       <div class="col">
         <a href="/delete_favorite/<%= @favorite.id %>" class="btn btn-block btn-outline-secondary">
           Delete favorite
         </a>
       </div>
-      <!-- Delete link favorite end -->
     </div>
 
     <dl>
       <dt>
         Restaurant
       </dt>
-      <!-- Display restaurant_id start -->
       <dd>
         <% if @favorite.restaurant.present? %>
           <a href="/restaurants/<%= @favorite.restaurant_id %>">
@@ -40,12 +35,10 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display restaurant_id end -->
 
       <dt>
         User
       </dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @favorite.user.present? %>
           <a href="/users/<%= @favorite.user_id %>">
@@ -53,28 +46,21 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@favorite.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@favorite.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->

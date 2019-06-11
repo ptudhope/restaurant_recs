@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @comment.present? %>
   <% if @comment.errors.any? %>
     <% @comment.errors.full_messages.each do |message| %>
@@ -16,45 +15,31 @@
 
 <hr>
 
-<!-- Form comment start -->
 <form action="/create_comment" method="post">
-<!-- Form comment end -->
 
-  <!-- Label and input for body start -->
   <div class="form-group">
     <label for="body">
       Body
     </label>
 
-    <!-- Input for body start -->
     <input type="text" id="body" name="body" class="form-control" value="<%= @comment.body %>">
-    <!-- Input for body end -->
   </div>
-  <!-- Label and input for body end -->
 
-  <!-- Label and input for author_id start -->
   <div class="form-group">
     <label for="author_id">
       Author
     </label>
 
-    <!-- Input for author_id start -->
     <%= select_tag(:author_id, options_from_collection_for_select(User.all, :id, :created_at, @comment.author_id), :class => "form-control") %>
-    <!-- Input for author_id end -->
   </div>
-  <!-- Label and input for author_id end -->
 
-  <!-- Label and input for restaurant_id start -->
   <div class="form-group">
     <label for="restaurant_id">
       Restaurant
     </label>
 
-    <!-- Input for restaurant_id start -->
     <input type="text" id="restaurant_id" name="restaurant_id" class="form-control" value="<%= @comment.restaurant_id %>">
-    <!-- Input for restaurant_id end -->
   </div>
-  <!-- Label and input for restaurant_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create comment

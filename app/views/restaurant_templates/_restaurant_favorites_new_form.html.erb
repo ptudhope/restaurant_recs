@@ -1,23 +1,14 @@
-<!-- Form favorite start -->
 <form action="/create_favorite_from_restaurant" method="post">
-<!-- Form favorite end -->
 
-  <!-- Label and input for restaurant_id start -->
-  <!-- Input for restaurant_id start -->
   <input type="hidden" name="restaurant_id" value="<%= @restaurant.id %>">
-  <!-- Input for restaurant_id end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <label for="user_id">
       User
     </label>
 
-    <!-- Input for user_id start -->
     <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :created_at, @favorite.user_id), :class => "form-control") %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create favorite

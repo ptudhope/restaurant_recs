@@ -11,55 +11,44 @@
         </a>
       </div>
 
-      <!-- Edit link restaurant start -->
       <div class="col">
         <a href="/restaurants/<%= @restaurant.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit restaurant
         </a>
       </div>
-      <!-- Edit link restaurant end -->
 
-      <!-- Delete link restaurant start -->
       <div class="col">
         <a href="/delete_restaurant/<%= @restaurant.id %>" class="btn btn-block btn-outline-secondary">
           Delete restaurant
         </a>
       </div>
-      <!-- Delete link restaurant end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @restaurant.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Address
       </dt>
-      <!-- Display address start -->
       <dd>
         <%= @restaurant.address %>
       </dd>
-      <!-- Display address end -->
 
       <dt>
         Comments count
       </dt>
-      <!-- Display comments_count start -->
       <dd>
         <%= @restaurant.comments_count %>
       </dd>
-      <!-- Display comments_count end -->
 
       <dt>
         Cuisine
       </dt>
-      <!-- Display cuisine_id start -->
       <dd>
         <% if @restaurant.cuisine.present? %>
           <a href="/cuisines/<%= @restaurant.cuisine_id %>">
@@ -67,33 +56,26 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display cuisine_id end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@restaurant.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@restaurant.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "restaurant_templates/restaurant_favorites" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

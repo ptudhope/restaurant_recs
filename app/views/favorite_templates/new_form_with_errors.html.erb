@@ -1,4 +1,3 @@
-<!-- Validation failure messages -->
 <% if @favorite.present? %>
   <% if @favorite.errors.any? %>
     <% @favorite.errors.full_messages.each do |message| %>
@@ -16,33 +15,23 @@
 
 <hr>
 
-<!-- Form favorite start -->
 <form action="/create_favorite" method="post">
-<!-- Form favorite end -->
 
-  <!-- Label and input for restaurant_id start -->
   <div class="form-group">
     <label for="restaurant_id">
       Restaurant
     </label>
 
-    <!-- Input for restaurant_id start -->
     <%= select_tag(:restaurant_id, options_from_collection_for_select(Restaurant.all, :id, :name, @favorite.restaurant_id), :class => "form-control") %>
-    <!-- Input for restaurant_id end -->
   </div>
-  <!-- Label and input for restaurant_id end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <label for="user_id">
       User
     </label>
 
-    <!-- Input for user_id start -->
     <%= select_tag(:user_id, options_from_collection_for_select(User.all, :id, :created_at, @favorite.user_id), :class => "form-control") %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create favorite
