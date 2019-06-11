@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "favorites#index"
   # Routes for the Comment resource:
 
   # CREATE
