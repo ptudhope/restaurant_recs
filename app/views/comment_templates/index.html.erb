@@ -68,7 +68,11 @@
 
         <!-- Display comment.author_id start -->
         <td>
-          <%= comment.author.created_at %>
+          <% if comment.author.present? %>
+            <a href="/users/<%= comment.author.id %>">
+              <%= comment.author.created_at %>
+            </a>
+          <% end %>
         </td>
         <!-- Display comment.author_id end -->
 

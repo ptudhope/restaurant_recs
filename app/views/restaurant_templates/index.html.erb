@@ -84,7 +84,11 @@
 
         <!-- Display restaurant.cuisine_id start -->
         <td>
-          <%= restaurant.cuisine.name %>
+          <% if restaurant.cuisine.present? %>
+            <a href="/cuisines/<%= restaurant.cuisine.id %>">
+              <%= restaurant.cuisine.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display restaurant.cuisine_id end -->
 

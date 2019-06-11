@@ -43,7 +43,11 @@
       </dt>
       <!-- Display author_id start -->
       <dd>
-        <%= @comment.author_id %>
+        <% if @comment.author.present? %>
+          <a href="/users/<%= @comment.author_id %>">
+            <%= @comment.author.created_at %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display author_id end -->
 
