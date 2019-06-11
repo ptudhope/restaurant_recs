@@ -63,7 +63,7 @@
     </label>
 
     <!-- Input for cuisine_id start -->
-    <input type="text" id="cuisine_id" name="cuisine_id" class="form-control" value="<%= @restaurant.cuisine_id %>">
+    <%= select_tag(:cuisine_id, options_from_collection_for_select(Cuisine.all, :id, :name, @restaurant.cuisine_id), :class => "form-control") %>
     <!-- Input for cuisine_id end -->
   </div>
   <!-- Label and input for cuisine_id end -->
