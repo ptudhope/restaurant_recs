@@ -6,6 +6,7 @@ class CuisinesController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.new
     @cuisine = Cuisine.find(params.fetch("id_to_display"))
 
     render("cuisine_templates/show.html.erb")

@@ -32,6 +32,21 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def create_row_from_restaurant
+    @favorite = Favorite.new
+
+    @favorite.restaurant_id = params.fetch("restaurant_id")
+    @favorite.user_id = params.fetch("user_id")
+
+    if @favorite.valid?
+      @favorite.save
+
+      redirect_to("/restaurants/#{@favorite.restaurant_id}", notice: "Favorite created successfully.")
+    else
+      render("favorite_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @favorite = Favorite.find(params.fetch("prefill_with_id"))
 

@@ -6,6 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @favorite = Favorite.new
     @restaurant = Restaurant.find(params.fetch("id_to_display"))
 
     render("restaurant_templates/show.html.erb")
@@ -29,6 +30,23 @@ class RestaurantsController < ApplicationController
       @restaurant.save
 
       redirect_back(:fallback_location => "/restaurants", :notice => "Restaurant created successfully.")
+    else
+      render("restaurant_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_cuisine
+    @restaurant = Restaurant.new
+
+    @restaurant.name = params.fetch("name")
+    @restaurant.address = params.fetch("address")
+    @restaurant.comments_count = params.fetch("comments_count")
+    @restaurant.cuisine_id = params.fetch("cuisine_id")
+
+    if @restaurant.valid?
+      @restaurant.save
+
+      redirect_to("/cuisines/#{@restaurant.cuisine_id}", notice: "Restaurant created successfully.")
     else
       render("restaurant_templates/new_form_with_errors.html.erb")
     end
