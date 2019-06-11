@@ -1,0 +1,44 @@
+<h1>
+  Edit favorite #<%= @favorite.id %>
+</h1>
+
+<hr>
+
+<!-- Form favorite start -->
+<form action="/update_favorite/<%= @favorite.id %>" method="post">
+<!-- Form favorite end -->
+
+  <!-- Label and input for restaurant_id start -->
+  <div class="form-group">
+    <label for="restaurant_id">
+      Restaurant
+    </label>
+
+    <!-- Input for restaurant_id start -->
+    <input type="text" id="restaurant_id" name="restaurant_id" class="form-control" value="<%= @favorite.restaurant_id %>">
+    <!-- Input for restaurant_id end -->
+  </div>
+  <!-- Label and input for restaurant_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @favorite.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update favorite
+  </button>
+</form>
+
+<hr>
+
+<a href="/favorites">
+  Go back
+</a>
