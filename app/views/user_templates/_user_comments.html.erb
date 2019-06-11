@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Comments
+
+    <a data-toggle="collapse" href="#user_comments_new_form">
+      Add comment
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.comments.each do |comment| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/comments/<%= comment.id %>">
+          <%= comment.body %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>

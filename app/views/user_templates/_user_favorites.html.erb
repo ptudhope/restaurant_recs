@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Favorites
+
+    <a data-toggle="collapse" href="#user_favorites_new_form">
+      Add favorite
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.favorites.each do |favorite| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/favorites/<%= favorite.id %>">
+          <%= favorite.created_at %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>
