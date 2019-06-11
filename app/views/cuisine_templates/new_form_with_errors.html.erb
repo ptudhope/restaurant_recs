@@ -1,0 +1,44 @@
+<!-- Validation failure messages -->
+<% if @cuisine.present? %>
+  <% if @cuisine.errors.any? %>
+    <% @cuisine.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new cuisine
+</h1>
+
+
+<hr>
+
+<!-- Form cuisine start -->
+<form action="/create_cuisine" method="post">
+<!-- Form cuisine end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <!-- Input for name start -->
+    <input type="text" id="name" name="name" class="form-control" value="<%= @cuisine.name %>">
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create cuisine
+  </button>
+</form>
+
+<hr>
+
+<a href="/cuisines">
+  Go back
+</a>
